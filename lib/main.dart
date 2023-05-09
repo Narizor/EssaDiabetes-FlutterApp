@@ -1,97 +1,90 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MiApp());
+void main() => runApp(const MyApp());
 
-class MiApp extends StatelessWidget {
-  const MiApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: "Mi App",
-      home: Inicio(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Snap Plan",
+      home: SplashScreen(),
     );
   }
 }
 
-class Inicio extends StatefulWidget {
-  const Inicio({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<Inicio> createState() => _InicioState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _InicioState extends State<Inicio> {
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 6)).then((value) {
+      Navigator.of(context).pushReplacement(
+          CupertinoPageRoute(builder: (ctx) => const HomeScreen()));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SizedBox(
+      width: double.infinity,
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
+        Image(
+          image: AssetImage("assets/images/mainLogo.png"),
+          width: 200,
+        ),
+        SizedBox(
+          height: 50,
+        ),
+        SpinKitFoldingCube(
+          color: Color.fromARGB(229, 21, 182, 185),
+          size: 50.0,
+        )
+      ]),
+    ));
+  }
+}
+
+// ------------------ HOME --------------------
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          title: const Text("HOME"),
           centerTitle: true,
-          title: Column(
+          backgroundColor: Colors.red,
+          elevation: 4,
+        ),
+        body: SizedBox(
+          width: double.infinity,
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 10),
-              Image.asset(
-                'assets/images/logo.png',
-                scale: 18,
+            children: const [
+              Text(
+                "Home",
+                style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.red),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text(
-                    'Remember',
-                    style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                  ),
-                  SizedBox(width: 1),
-                  Text(
-                    'Me',
-                    style: TextStyle(color: Color.fromARGB(255, 73, 73, 73)),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10)
             ],
           ),
-          backgroundColor: const Color.fromARGB(255, 248, 154, 31),
-        ),
-        body: ListView(
-          children: [
-            Container(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.network(
-                    "https://www.thehighereducationreview.com/newsimagespl/82iom179.jpeg")),
-            Container(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.network(
-                    "https://i.pinimg.com/originals/42/b8/c9/42b8c90ea9788cc68aab20efd525d0b5.png")),
-            Container(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.network(
-                    "https://site.millasparaelretiro.com/wp-content/uploads/pablo-heimplatz-EAvS-4KnGrk-unsplash-scaled.jpg")),
-            Container(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.network(
-                    "https://avatars.dzeninfra.ru/get-zen_doc/8080662/pub_64072ee0871cbc7cdb0fcbc0_64072f0a976ffe173bb44eb5/scale_1200")),
-            Column(children: [
-              // ignore: avoid_unnecessary_containers
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: const Text('Designed',
-                    textAlign: TextAlign.start, style: TextStyle(fontSize: 30)),
-              ),
-              Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                  child: const Text('By',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 25))),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: const Text('FabrizioJDN',
-                    textAlign: TextAlign.end, style: TextStyle(fontSize: 30)),
-              ),
-            ])
-          ],
         ));
   }
 }
