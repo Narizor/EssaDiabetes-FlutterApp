@@ -1,28 +1,32 @@
+import 'package:first_app_flutter/services/credentials_firebase.dart';
 import 'package:flutter/material.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginOption extends StatelessWidget {
   const LoginOption({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: const [
-        BuildButton(
-          iconImage: Image(
-            height: 20,
-            width: 20,
-            image: AssetImage('assets/images/facebook.png'),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: SignInButton(
+            text: "Iniciar con google",
+            Buttons.google,
+            onPressed: () async {
+              signInWithGoogle();
+            },
           ),
-          textButton: 'Facebook',
         ),
-        BuildButton(
-          iconImage: Image(
-            height: 20,
-            width: 20,
-            image: AssetImage('assets/images/google.png'),
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: SignInButton(
+            text: "Iniciar con Facebook",
+            Buttons.facebook,
+            onPressed: () {},
           ),
-          textButton: 'Google',
         ),
       ],
     );

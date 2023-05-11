@@ -83,7 +83,7 @@ class LoginView extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                'O logueate con :',
+                '------------Or---------------',
                 style: subTitle.copyWith(color: kBlackColor),
               ),
               const SizedBox(
