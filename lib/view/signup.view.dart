@@ -1,5 +1,8 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_app_flutter/view/home.view.dart';
 import 'package:first_app_flutter/widgets/checkbox.widget.dart';
-import 'package:first_app_flutter/widgets/loginOption.widget.dart';
 import 'package:first_app_flutter/widgets/primaryButton.widget.dart';
 import 'package:first_app_flutter/widgets/signupForm.widget.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +10,16 @@ import 'package:first_app_flutter/theme.dart';
 import 'package:get/get.dart';
 import 'package:first_app_flutter/view/login.view.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final TextEditingController _newEmailController = TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,31 +88,50 @@ class SignUp extends StatelessWidget {
               child: CheckBox('Tengo más de 18 años.'),
             ),
             const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: kDefaultPadding,
-              child: PrimaryButton(buttonText: 'Sign Up'),
-            ),
-            const SizedBox(
-              height: 20,
+              height: 50,
             ),
             Padding(
               padding: kDefaultPadding,
-              child: Text(
-                'O logueate con :',
-                style: subTitle.copyWith(color: kBlackColor),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: SizedBox(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child:
+                        Stack(alignment: Alignment.center, children: <Widget>[
+                      Positioned.fill(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: kPrimaryColor,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            foregroundColor: kPrimaryColor,
+                            padding: const EdgeInsets.all(16.0),
+                          ),
+                          onPressed: () async {
+                            try {
+                              // ignore: unused_local_variable
+                              UserCredential userCredential = await FirebaseAuth
+                                  .instance
+                                  .createUserWithEmailAndPassword(
+                                      email: _newEmailController.text,
+                                      password: _newPasswordController.text);
+                              Get.to(() => const HomeView());
+                            } on FirebaseAuthException catch (e) {
+                              if (e.code == 'weak-password') {
+                                log('The password provided is too weak.');
+                              } else if (e.code == 'email-already-in-use') {
+                                log('The account already exists for that email.');
+                              }
+                            }
+                          },
+                          child: Text("Registrarse",
+                              style: textButton.copyWith(color: kWhiteColor))),
+                    ])),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: kDefaultPadding,
-              child: LoginOption(),
-            ),
-            const SizedBox(
-              height: 20,
             ),
           ],
         ),

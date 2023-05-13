@@ -39,11 +39,23 @@ class ResetPassword extends StatelessWidget {
                 height: 40,
               ),
               GestureDetector(
-                  onTap: () {
-                    Get.to(() => const LoginView());
-                  },
-                  child:
-                      const PrimaryButton(buttonText: 'Resetear Contraseña')),
+                onTap: () {
+                  Get.to(() => const LoginView());
+                },
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    elevation: 0,
+                  ),
+                  child: const Text("Registrarse"),
+                ),
+                // const PrimaryButton(
+                //   buttonText: 'Resetear Contraseña',
+                //   emailController: _emailController,
+                //   passwordController:_passwordController,
+                //   )
+              )
             ],
           ),
         ),

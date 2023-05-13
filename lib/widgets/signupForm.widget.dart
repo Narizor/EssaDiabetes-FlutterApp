@@ -18,7 +18,6 @@ class _SignUpFormState extends State<SignUpForm> {
         buildInputForm('Primer Nombre', false),
         buildInputForm('Apellidos', false),
         buildInputForm('Email', false),
-        buildInputForm('Telefono', false),
         buildInputForm('Contraseña', true),
         buildInputForm('Confirmar Contraseña', true),
       ],

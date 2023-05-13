@@ -29,35 +29,15 @@ class LoginView extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              Row(
-                children: [
-                  Text(
-                    'Eres Nuevo?',
-                    style: subTitle,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(() => const SignUp());
-                    },
-                    child: Text(
-                      'Sign Up',
-                      style: textButton.copyWith(
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
               const SizedBox(
                 height: 10,
               ),
               const LogInForm(),
               const SizedBox(
                 height: 20,
+              ),
+              const SizedBox(
+                height: 10,
               ),
               GestureDetector(
                 onTap: () {
@@ -76,20 +56,54 @@ class LoginView extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const PrimaryButton(
-                buttonText: 'Log In',
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                '------------Or---------------',
-                style: subTitle.copyWith(color: kBlackColor),
+              Row(
+                children: [
+                  Expanded(
+                    child: Divider(
+                      thickness: 0.5,
+                      color: Colors.grey[400],
+                    ),
+                  ),
+                  const Text("O continua con"),
+                  Expanded(
+                    child: Divider(
+                      thickness: 0.5,
+                      color: Colors.grey[400],
+                    ),
+                  )
+                ],
               ),
               const SizedBox(
                 height: 20,
               ),
               const LoginOption(),
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Eres Nuevo?',
+                    style: subTitle,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => const SignUp());
+                    },
+                    child: Text(
+                      'Registrate ahora',
+                      style: textButton.copyWith(
+                        decoration: TextDecoration.underline,
+                        decorationThickness: 1,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

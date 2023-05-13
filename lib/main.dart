@@ -2,11 +2,12 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:first_app_flutter/view/home.view.dart';
+import 'package:first_app_flutter/view/login.view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:first_app_flutter/view/splash.view.dart';
 import 'firebase_options.dart';
-import 'package:first_app_flutter/services/credentials_firebase.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,11 +50,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    log(status.toString());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Snap Plan",
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: const SplashView(),
+      home: status ? const HomeView() : const SplashView(),
     );
   }
 }

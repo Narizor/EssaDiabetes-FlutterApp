@@ -1,3 +1,4 @@
+import 'package:first_app_flutter/widgets/primaryButton.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app_flutter/theme.dart';
 
@@ -11,12 +12,22 @@ class LogInForm extends StatefulWidget {
 
 class _LogInFormState extends State<LogInForm> {
   bool _isObscure = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         buildInputForm('Email', false),
         buildInputForm('Contraseña', true),
+        const SizedBox(
+          height: 15,
+        ),
+        PrimaryButton(
+          buttonText: 'Iniciar Sesión',
+          emailController: _emailController,
+          passwordController: _passwordController,
+        ),
       ],
     );
   }
@@ -25,6 +36,7 @@ class _LogInFormState extends State<LogInForm> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
+        controller: pass ? _passwordController : _emailController,
         obscureText: pass ? _isObscure : false,
         decoration: InputDecoration(
             labelText: label,
