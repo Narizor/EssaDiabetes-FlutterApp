@@ -1,9 +1,9 @@
 import 'package:first_app_flutter/widgets/primaryButton.widget.dart';
 import 'package:first_app_flutter/widgets/resetForm.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app_flutter/view/login.view.dart';
 import 'package:first_app_flutter/theme.dart';
-import 'package:get/get.dart';
+
+import '../Routes/routes.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
@@ -40,7 +40,7 @@ class ResetPassword extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const LoginView());
+                  Navigator.pushNamed(context, Routes.Loginpage);
                 },
                 child: ElevatedButton(
                   onPressed: () {},

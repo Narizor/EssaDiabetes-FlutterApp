@@ -1,11 +1,10 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:first_app_flutter/view/home.view.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app_flutter/theme.dart';
-import 'package:get/get.dart';
+
+import '../Routes/routes.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String buttonText;
@@ -45,7 +44,8 @@ class PrimaryButton extends StatelessWidget {
                     password: passwordController.text,
                   );
                   if (userCredential.user != null) {
-                    Get.to(() => const HomeView());
+                    // ignore: use_build_context_synchronously
+                    Navigator.pushNamed(context, Routes.Homepage);
                   }
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'user-not-found') {

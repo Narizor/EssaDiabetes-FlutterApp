@@ -2,10 +2,9 @@ import 'package:first_app_flutter/widgets/loginForm.widget.dart';
 import 'package:first_app_flutter/widgets/loginOption.widget.dart';
 import 'package:first_app_flutter/widgets/primaryButton.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app_flutter/view/resetPassword.view.dart';
-import 'package:first_app_flutter/view/signup.view.dart';
 import 'package:first_app_flutter/theme.dart';
-import 'package:get/get.dart';
+
+import '../Routes/routes.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -41,7 +40,7 @@ class LoginView extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const ResetPassword());
+                  Navigator.pushNamed(context, Routes.Resetpasswordpage);
                 },
                 child: const Text(
                   'Olvidaste la contraseña?',
@@ -92,7 +91,7 @@ class LoginView extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const SignUp());
+                      Navigator.pushNamed(context, Routes.Registerpage);
                     },
                     child: Text(
                       'Registrate ahora',

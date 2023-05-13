@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:first_app_flutter/view/login.view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:get/get.dart';
+
+import '../Routes/routes.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -10,7 +10,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 3), () {
-      Get.to(() => const LoginView());
+      Navigator.pushNamed(context, Routes.Loginpage);
     });
     return Scaffold(
         body: SizedBox(

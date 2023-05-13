@@ -1,14 +1,13 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:first_app_flutter/view/home.view.dart';
 import 'package:first_app_flutter/widgets/checkbox.widget.dart';
 import 'package:first_app_flutter/widgets/primaryButton.widget.dart';
 import 'package:first_app_flutter/widgets/signupForm.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app_flutter/theme.dart';
-import 'package:get/get.dart';
-import 'package:first_app_flutter/view/login.view.dart';
+
+import '../Routes/routes.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -53,7 +52,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => const LoginView());
+                      Navigator.pushNamed(context, Routes.Loginpage);
                     },
                     child: Text(
                       'Log In',
@@ -119,7 +118,8 @@ class _SignUpState extends State<SignUp> {
                                   .createUserWithEmailAndPassword(
                                       email: _newEmailController.text,
                                       password: _newPasswordController.text);
-                              Get.to(() => const HomeView());
+                              // ignore: use_build_context_synchronously
+                              Navigator.pushNamed(context, Routes.Homepage);
                             } on FirebaseAuthException catch (e) {
                               if (e.code == 'weak-password') {
                                 log('The password provided is too weak.');
