@@ -1,8 +1,8 @@
 import 'dart:developer';
+import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:first_app_flutter/services/credentials_firebase.dart';
-import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
@@ -37,7 +37,7 @@ class LoginOption extends StatelessWidget {
               final GoogleSignIn _googleSignIn = GoogleSignIn();
               FirebaseAuth.instance.signOut();
               _googleSignIn.signOut();
-              log('Signout o algo asi');
+              log('Signout');
             },
           ),
         ),

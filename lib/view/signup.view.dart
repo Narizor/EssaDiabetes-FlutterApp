@@ -68,9 +68,12 @@ class _SignUpState extends State<SignUp> {
             const SizedBox(
               height: 10,
             ),
-            const Padding(
+            Padding(
               padding: kDefaultPadding,
-              child: SignUpForm(),
+              child: SignUpForm(
+                newPasswordController: _newPasswordController,
+                newEmailController: _newEmailController,
+              ),
             ),
             const SizedBox(
               height: 20,
