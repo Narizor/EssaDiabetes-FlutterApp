@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:first_app_flutter/theme.dart';
+import 'package:first_app_flutter/widgets/trendingTripsList.widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,7 +25,8 @@ class HomeView extends StatelessWidget {
           ),
           WelcomeMessageContainer(),
           CategoriesListScroll(),
-          TrendingMessage()
+          TrendingMessage(),
+          Expanded(child: TrendingTripsList())
         ],
       )),
     );

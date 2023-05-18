@@ -41,6 +41,7 @@ dependencies:
   firebase_auth: ^4.5.0
   google_sign_in: ^6.1.0
   sign_in_button: ^3.2.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +74,13 @@ flutter:
     - assets/images/favoritesLogo.jpg
     - assets/images/hatedLogo.jpg
     - assets/images/wishLogo.jpg
+    - assets/images/france.jpg
+    - assets/images/brasil2.jpg
+    - assets/images/peru.jpg
+    - assets/images/new.jpg
+    - assets/images/greece.jpg
+    - assets/images/japan.jpg
+    - assets/images/australia.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
