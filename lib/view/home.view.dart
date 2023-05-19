@@ -14,9 +14,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      body: const SafeArea(
+      body: SafeArea(
           child: Column(
-        children: [
+        children: const [
           Header(
             imgUser: 'assets/images/default.png',
           ),
@@ -45,7 +45,7 @@ class DrawerContainer extends StatelessWidget {
       child: SafeArea(
         right: false,
         child: Center(
-          child: Text('Drawer content'),
+          child: Text('SOON!!'),
         ),
       ),
     );
@@ -65,16 +65,19 @@ class CategoriesListScroll extends StatelessWidget {
         padding: const EdgeInsets.only(right: 15.0),
         child: Row(children: [
           CategoryCard(
-              categoryTitle: "Favoritos",
-              img: "assets/images/favoritesLogo.jpg",
+              categoryTitle: "Registro",
+              categorySubTitle: "Alimentos",
+              img: "assets/images/registroAlimentos.jpg",
               press: () {}),
           CategoryCard(
-              categoryTitle: "Odiados",
-              img: "assets/images/hatedLogo.jpg",
+              categoryTitle: "Calculadora",
+              categorySubTitle: "Carbohidratos",
+              img: "assets/images/calculadoraCarbohidratos.jpg",
               press: () {}),
           CategoryCard(
-              categoryTitle: "Deseos",
-              img: "assets/images/wishLogo.jpg",
+              categoryTitle: "Planificación",
+              categorySubTitle: "Comida",
+              img: "assets/images/planificacionAlimentos.jpg",
               press: () {})
         ]),
       ),
@@ -86,11 +89,12 @@ class CategoryCard extends StatelessWidget {
   const CategoryCard({
     Key? key,
     required this.categoryTitle,
+    required this.categorySubTitle,
     required this.press,
     required this.img,
   }) : super(key: key);
 
-  final String categoryTitle, img;
+  final String categoryTitle, categorySubTitle, img;
   final VoidCallback? press;
 
   @override
@@ -124,8 +128,18 @@ class CategoryCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                categoryTitle,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
               const Text(
-                "Mis",
+                "de",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -135,7 +149,7 @@ class CategoryCard extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                categoryTitle,
+                categorySubTitle,
                 style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -186,12 +200,12 @@ class TrendingMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
-        children: [
+        children: const [
           Text(
-            "Viajes de Moda",
+            "Alimentos Saludables",
             style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -224,7 +238,7 @@ class Header extends StatelessWidget {
               color: Colors.grey[800],
               icon: const Icon(Icons.menu)),
           const Image(
-            image: AssetImage("assets/images/mainLogo.png"),
+            image: AssetImage("assets/images/essalud.png"),
             width: 50,
           ),
           GestureDetector(

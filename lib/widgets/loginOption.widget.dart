@@ -6,9 +6,13 @@ import 'package:first_app_flutter/services/credentials_firebase.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
-class LoginOption extends StatelessWidget {
+class LoginOption extends StatefulWidget {
   const LoginOption({super.key});
+  @override
+  State<LoginOption> createState() => _LoginOptionState();
+}
 
+class _LoginOptionState extends State<LoginOption> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +24,7 @@ class LoginOption extends StatelessWidget {
             text: "Iniciar con google",
             Buttons.google,
             onPressed: () async {
-              signInWithGoogle();
+              await signInWithGoogle();
             },
           ),
         ),

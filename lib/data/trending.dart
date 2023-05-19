@@ -14,30 +14,30 @@ class TrendingTrip {
 
 final List<TrendingTrip> trendingtrips = [
   TrendingTrip(
-    title: "France",
-    img: "assets/images/france.jpg",
+    title: "Hoja Verde",
+    img: "assets/images/verdurasHojaVerde.jpg",
     description:
         "Un país situado en Europa Occidental. Limita al norte con el Canal de la Mancha, el Mar del Norte y Bélgica; al este con Luxemburgo, Alemania y Suiza; al sur con Italia, Mónaco, España y Andorra; y al oeste con España, el Golfo de Vizcaya y el Océano Atlántico. Francia también tiene varias regiones de ultramar en el Caribe, el Océano Índico y el Pacífico.",
     hour: DateTime(
         2023, 5, 18, 5, 0), // Representa la hora 05:00 el 18 de mayo de 2023
   ),
   TrendingTrip(
-    title: "Brasil",
-    img: "assets/images/brasil2.jpg",
+    title: "Pescados Grasos",
+    img: "assets/images/pescadosGrasos.jpg",
     description:
         "El país más grande de América del Sur, destaca por su impresionante diversidad natural, que incluye la selva amazónica, playas paradisíacas y ciudades vibrantes como Río de Janeiro con su icónico Cristo Redentor.",
     hour: DateTime(2023, 5, 18, 7, 0),
   ),
   TrendingTrip(
-    title: "Peru",
-    img: "assets/images/peru.jpg",
+    title: "Tomates",
+    img: "assets/images/tomates.jpeg",
     description:
         "Pais conocido por su rica historia y diversidad cultural. Fue el hogar de antiguas civilizaciones como los Incas, cuyo legado arquitectónico y cultural perdura hasta el día de hoy, especialmente en la ciudad de Machu Picchu, considerada una de las maravillas del mundo.",
     hour: DateTime(2023, 5, 18, 10, 0),
   ),
   TrendingTrip(
-    title: "Nueva York",
-    img: "assets/images/new.jpg",
+    title: "Palta",
+    img: "assets/images/palta.jpg",
     description:
         "Pais conocido por su rica historia y diversidad cultural. Fue el hogar de antiguas civilizaciones como los Incas, cuyo legado arquitectónico y cultural perdura hasta el día de hoy, especialmente en la ciudad de Machu Picchu, considerada una de las maravillas del mundo.",
     hour: DateTime(2023, 5, 18, 7, 0),

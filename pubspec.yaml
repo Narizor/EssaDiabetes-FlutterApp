@@ -81,6 +81,14 @@ flutter:
     - assets/images/greece.jpg
     - assets/images/japan.jpg
     - assets/images/australia.jpg
+    - assets/images/palta.jpg
+    - assets/images/pescadosGrasos.jpg
+    - assets/images/tomates.jpeg
+    - assets/images/verdurasHojaVerde.jpg
+    - assets/images/calculadoraCarbohidratos.jpg
+    - assets/images/planificacionAlimentos.jpg
+    - assets/images/registroAlimentos.jpg
+    - assets/images/essalud.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

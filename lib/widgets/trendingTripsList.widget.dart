@@ -90,17 +90,10 @@ class _TrendingTripsListState extends State<TrendingTripsList> {
                                 Text(
                                   trendingtrip.title,
                                   style: const TextStyle(
-                                      fontSize: 23.0,
+                                      fontSize: 30.0,
                                       fontWeight: FontWeight.w300,
                                       color: Colors.white),
                                 ),
-                                Text(
-                                    DateFormat('HH:mm a')
-                                        .format(trendingtrip.hour),
-                                    style: const TextStyle(
-                                        fontSize: 30.0,
-                                        fontWeight: FontWeight.w300,
-                                        color: Colors.white)),
                               ],
                             ),
                           ),

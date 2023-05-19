@@ -37,7 +37,7 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Image(
-              image: AssetImage("assets/images/mainLogo.png"),
+              image: AssetImage("assets/images/essalud.png"),
               width: 200,
             ),
             SizedBox(
