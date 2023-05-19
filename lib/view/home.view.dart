@@ -14,9 +14,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      body: SafeArea(
+      body: const SafeArea(
           child: Column(
-        children: const [
+        children: [
           Header(
             imgUser: 'assets/images/default.png',
           ),
@@ -29,6 +29,25 @@ class HomeView extends StatelessWidget {
           Expanded(child: TrendingTripsList())
         ],
       )),
+      drawer: const DrawerContainer(),
+    );
+  }
+}
+
+class DrawerContainer extends StatelessWidget {
+  const DrawerContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Drawer(
+      child: SafeArea(
+        right: false,
+        child: Center(
+          child: Text('Drawer content'),
+        ),
+      ),
     );
   }
 }
@@ -167,10 +186,10 @@ class TrendingMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
-        children: const [
+        children: [
           Text(
             "Viajes de Moda",
             style: TextStyle(
@@ -198,26 +217,31 @@ class Header extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-              iconSize: 35.0,
               onPressed: () {
-                if (Navigator.canPop(context)) {
-                  Navigator.pop(context);
-                }
-                // ignore: no_leading_underscores_for_local_identifiers
-                final GoogleSignIn _googleSignIn = GoogleSignIn();
-                FirebaseAuth.instance.signOut();
-                _googleSignIn.signOut();
-                log('Signout');
+                Scaffold.of(context).openDrawer();
               },
+              iconSize: 35.0,
               color: Colors.grey[800],
               icon: const Icon(Icons.menu)),
           const Image(
             image: AssetImage("assets/images/mainLogo.png"),
             width: 50,
           ),
-          CircleAvatar(
-            radius: 20,
-            backgroundImage: AssetImage(imgUser),
+          GestureDetector(
+            onTap: () {
+              if (Navigator.canPop(context)) {
+                Navigator.pop(context);
+              }
+              // ignore: no_leading_underscores_for_local_identifiers
+              final GoogleSignIn _googleSignIn = GoogleSignIn();
+              FirebaseAuth.instance.signOut();
+              _googleSignIn.signOut();
+              log('Signout');
+            },
+            child: CircleAvatar(
+              radius: 20,
+              backgroundImage: AssetImage(imgUser),
+            ),
           )
         ],
       ),
