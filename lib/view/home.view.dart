@@ -14,9 +14,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      body: SafeArea(
+      body: const SafeArea(
           child: Column(
-        children: const [
+        children: [
           Header(
             imgUser: 'assets/images/default.png',
           ),
@@ -71,7 +71,7 @@ class CategoriesListScroll extends StatelessWidget {
               press: () {}),
           CategoryCard(
               categoryTitle: "Calculadora",
-              categorySubTitle: "Carbohidratos",
+              categorySubTitle: "Calorias",
               img: "assets/images/calculadoraCarbohidratos.jpg",
               press: () {}),
           CategoryCard(

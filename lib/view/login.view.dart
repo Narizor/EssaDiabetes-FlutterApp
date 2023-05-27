@@ -41,7 +41,7 @@ class _LoginViewState extends State<LoginView> {
 
       if (authenticated) {
         // ignore: use_build_context_synchronously
-        Navigator.pushNamed(context, Routes.Homepage);
+        Navigator.pushNamed(context, Routes.PresettingPage);
       }
     } on PlatformException catch (e) {
       // ignore: avoid_print
