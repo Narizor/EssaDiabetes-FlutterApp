@@ -14,9 +14,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      body: const SafeArea(
+      body: SafeArea(
           child: Column(
-        children: [
+        children: const [
           Header(
             imgUser: 'assets/images/default.png',
           ),

@@ -99,24 +99,6 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                 ),
-                // ignore: sized_box_for_whitespace
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 15.0),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.lightBlue[400],
-                      borderRadius: BorderRadius.circular(20.0)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
-                    child: TextButton(
-                      onPressed: _authenticate,
-                      child: const Text(
-                        "Ingresar",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                    ),
-                  ),
-                ),
                 // ignore: avoid_unnecessary_containers
                 Container(
                     child: TextField(
@@ -150,7 +132,25 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
                   ),
-                ))
+                )),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 15.0),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.lightBlue[400],
+                      borderRadius: BorderRadius.circular(20.0)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),
+                    child: TextButton(
+                      onPressed: _authenticate,
+                      child: const Text(
+                        "Ingresar",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ),
+                  ),
+                ),
+                // ignore: avoid_unnecessary_containers
               ]),
             )
           ]),
