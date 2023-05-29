@@ -1,11 +1,8 @@
 import 'dart:developer';
 
 import 'package:first_app_flutter/theme.dart';
-import 'package:first_app_flutter/widgets/trendingTripsList.widget.dart';
+import 'package:first_app_flutter/widgets/healthyFoodList.widget.dart';
 import 'package:flutter/material.dart';
-
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -25,8 +22,8 @@ class HomeView extends StatelessWidget {
           ),
           WelcomeMessageContainer(),
           CategoriesListScroll(),
-          TrendingMessage(),
-          Expanded(child: TrendingTripsList())
+          HealthyFoodTitle(),
+          Expanded(child: HealthyFoodList())
         ],
       )),
       drawer: const DrawerContainer(),
@@ -193,8 +190,8 @@ class WelcomeMessageContainer extends StatelessWidget {
   }
 }
 
-class TrendingMessage extends StatelessWidget {
-  const TrendingMessage({
+class HealthyFoodTitle extends StatelessWidget {
+  const HealthyFoodTitle({
     super.key,
   });
 
@@ -246,10 +243,6 @@ class Header extends StatelessWidget {
               if (Navigator.canPop(context)) {
                 Navigator.pop(context);
               }
-              // ignore: no_leading_underscores_for_local_identifiers
-              final GoogleSignIn _googleSignIn = GoogleSignIn();
-              FirebaseAuth.instance.signOut();
-              _googleSignIn.signOut();
               log('Signout');
             },
             child: CircleAvatar(

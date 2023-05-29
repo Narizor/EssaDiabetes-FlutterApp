@@ -35,16 +35,16 @@ class _SplashViewState extends State<SplashView> {
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Image(
+          children: [
+            const Image(
               image: AssetImage("assets/images/essalud.png"),
               width: 200,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             SpinKitChasingDots(
-              color: Color.fromARGB(229, 21, 182, 185),
+              color: Colors.lightBlue[400],
               size: 50.0,
             ),
           ],

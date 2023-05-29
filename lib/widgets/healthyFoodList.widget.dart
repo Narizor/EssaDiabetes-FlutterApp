@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:first_app_flutter/data/trending.dart';
-import 'package:intl/intl.dart';
 
 const itemSize = 105.0;
 
-class TrendingTripsList extends StatefulWidget {
-  const TrendingTripsList({super.key});
+class HealthyFoodList extends StatefulWidget {
+  const HealthyFoodList({super.key});
 
   @override
-  State<TrendingTripsList> createState() => _TrendingTripsListState();
+  State<HealthyFoodList> createState() => _HealthyFoodListState();
 }
 
-class _TrendingTripsListState extends State<TrendingTripsList> {
+class _HealthyFoodListState extends State<HealthyFoodList> {
   final scrollController = ScrollController();
 
   void onListen() {
