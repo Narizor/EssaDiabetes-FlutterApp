@@ -94,6 +94,18 @@ flutter:
     - assets/images/registroAlimentos.jpg
     - assets/images/essalud.png
     - assets/images/fingerprint.png
+    - assets/images/world.jpg
+    - assets/images/cancun.jpg
+    - assets/images/ny.jpg
+    - assets/images/fecha.png
+    - assets/images/edit.png
+    - assets/images/perfilTest.jpg
+    - assets/images/brasil.jpg
+    - assets/images/miami.jpg
+    - assets/images/manzana.jpg
+    - assets/images/paltaFood.jpg
+    - assets/images/atun.jpg
+    - assets/images/pollo.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

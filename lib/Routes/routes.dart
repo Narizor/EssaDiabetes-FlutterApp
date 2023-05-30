@@ -5,4 +5,5 @@ abstract class Routes {
   static const String Homepage = "/homepage";
   static const String PresettingPage = "/presetting";
   static const String Presetting2Page = "/presetting2";
+  static const String UserProfilePage = "/userprofile";
 }

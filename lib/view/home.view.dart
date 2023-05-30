@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:first_app_flutter/Routes/routes.dart';
 import 'package:first_app_flutter/theme.dart';
 import 'package:first_app_flutter/widgets/drawerContainer.widget.dart';
 import 'package:first_app_flutter/widgets/healthyFoodList.widget.dart';
@@ -223,10 +224,7 @@ class Header extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              if (Navigator.canPop(context)) {
-                Navigator.pop(context);
-              }
-              log('Signout');
+              Navigator.pushNamed(context, Routes.UserProfilePage);
             },
             child: CircleAvatar(
               radius: 20,
