@@ -217,7 +217,7 @@ class _AgePickerState extends State<AgePicker> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.only(top: 10, left: 40, right: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -226,9 +226,6 @@ class _AgePickerState extends State<AgePicker> {
               items[index],
               style: const TextStyle(fontSize: 48, fontWeight: FontWeight.w400),
             ),
-          ),
-          const SizedBox(
-            width: 24,
           ),
           CupertinoButton.filled(
             padding: const EdgeInsets.symmetric(horizontal: 20),

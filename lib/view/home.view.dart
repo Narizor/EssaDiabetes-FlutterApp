@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:first_app_flutter/theme.dart';
+import 'package:first_app_flutter/widgets/drawerContainer.widget.dart';
 import 'package:first_app_flutter/widgets/healthyFoodList.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -27,24 +28,6 @@ class HomeView extends StatelessWidget {
         ],
       )),
       drawer: const DrawerContainer(),
-    );
-  }
-}
-
-class DrawerContainer extends StatelessWidget {
-  const DrawerContainer({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Drawer(
-      child: SafeArea(
-        right: false,
-        child: Center(
-          child: Text('SOON!!'),
-        ),
-      ),
     );
   }
 }

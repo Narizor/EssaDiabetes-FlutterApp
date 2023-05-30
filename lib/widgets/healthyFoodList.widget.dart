@@ -1,5 +1,6 @@
+import 'package:first_app_flutter/view/healthyFoodInfo.view.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app_flutter/data/trending.dart';
+import 'package:first_app_flutter/data/foodhealthyinfo.dart';
 
 const itemSize = 105.0;
 
@@ -40,10 +41,10 @@ class _HealthyFoodListState extends State<HealthyFoodList> {
           slivers: [
             SliverList(
                 delegate: SliverChildBuilderDelegate(
-              childCount: trendingtrips.length,
+              childCount: foodhealthyinfos.length,
               (context, index) {
                 // ignore: unused_local_variable
-                final trendingtrip = trendingtrips[index];
+                final healthyfood = foodhealthyinfos[index];
                 final itemPositionOffset = index * itemSize / 2;
                 final difference = scrollController.offset - itemPositionOffset;
                 final percent = 1 - (difference / (itemSize / 2));
@@ -64,39 +65,50 @@ class _HealthyFoodListState extends State<HealthyFoodList> {
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(40.0),
                             topRight: Radius.circular(40.0)),
-                        child: Card(
-                            child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: itemSize,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(trendingtrip.img),
-                              fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
-                                Colors.black.withOpacity(
-                                    0.2), // Ajusta la opacidad aquí (0.0 - 1.0)
-                                BlendMode
-                                    .darken, // Puedes cambiar el modo de fusión según tus necesidades
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HealthyFoodInfoView(
+                                    healthyfoodinfo: healthyfood),
+                              ),
+                            );
+                          },
+                          child: Card(
+                              child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: itemSize,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(healthyfood.img),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                  Colors.black.withOpacity(
+                                      0.2), // Ajusta la opacidad aquí (0.0 - 1.0)
+                                  BlendMode
+                                      .darken, // Puedes cambiar el modo de fusión según tus necesidades
+                                ),
                               ),
                             ),
-                          ),
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(top: 10.0, left: 10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  trendingtrip.title,
-                                  style: const TextStyle(
-                                      fontSize: 30.0,
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.white),
-                                ),
-                              ],
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 10.0, left: 10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    healthyfood.title,
+                                    style: const TextStyle(
+                                        fontSize: 30.0,
+                                        fontWeight: FontWeight.w300,
+                                        color: Colors.white),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        )),
+                          )),
+                        ),
                       ),
                     ),
                   ),
