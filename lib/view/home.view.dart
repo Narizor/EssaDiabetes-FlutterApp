@@ -49,7 +49,9 @@ class CategoriesListScroll extends StatelessWidget {
               categoryTitle: "Registro",
               categorySubTitle: "Alimentos",
               img: "assets/images/registroAlimentos.jpg",
-              press: () {}),
+              press: () {
+                Navigator.pushNamed(context, Routes.FoodFormPage);
+              }),
           CategoryCard(
               categoryTitle: "Calculadora",
               categorySubTitle: "Calorias",
