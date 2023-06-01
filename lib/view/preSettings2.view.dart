@@ -48,7 +48,7 @@ class _PreSettings2ViewState extends State<PreSettings2View> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
