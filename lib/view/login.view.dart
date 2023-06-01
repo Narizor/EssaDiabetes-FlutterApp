@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first_app_flutter/Routes/routes.dart';
+import 'package:first_app_flutter/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
@@ -53,7 +54,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: const Color(0xFF3C3E52),
+      backgroundColor: kWhiteColor,
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: SingleChildScrollView(
@@ -62,7 +63,7 @@ class _LoginViewState extends State<LoginView> {
               child: Text(
                 "EssaDiabetes",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: kPrimaryColor,
                     fontSize: 50,
                     fontWeight: FontWeight.bold),
               ),
@@ -82,7 +83,7 @@ class _LoginViewState extends State<LoginView> {
                 const Text(
                   "Autenticación por Huella",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: kPrimaryColor,
                       fontSize: 23,
                       fontWeight: FontWeight.bold),
                 ),
@@ -94,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
                     "Autenticación usando la huella digital como metodo de acceso a la apliación",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.grey,
                       height: 1.5,
                     ),
                   ),
@@ -111,24 +112,24 @@ class _LoginViewState extends State<LoginView> {
                         8), // Limita la longitud máxima a 8 caracteres
                   ],
                   style: const TextStyle(
-                    color: Colors.white, // Cambia el color del texto a blanco
+                    color: kPrimaryColor,
                   ),
-                  textAlign: TextAlign.center, // Centra el texto ingresado
+                  textAlign: TextAlign.center,
                   decoration: const InputDecoration(
                     labelText: 'Ingrese su DNI',
                     labelStyle: TextStyle(
-                      color: Colors.white, // Cambia el color del label a blanco
+                      color: Colors.blue, // Cambia el color del label a blanco
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors
-                            .white, // Cambia el color del borde cuando no está enfocado
+                            .blue, // Cambia el color del borde cuando no está enfocado
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors
-                            .white, // Cambia el color del borde cuando está enfocado
+                            .blue, // Cambia el color del borde cuando está enfocado
                       ),
                     ),
                   ),

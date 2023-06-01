@@ -1,3 +1,4 @@
+import 'package:first_app_flutter/view/caloriesCalculator.view.dart';
 import 'package:first_app_flutter/view/foodForm.view.dart';
 import 'package:first_app_flutter/view/login.view.dart';
 import 'package:first_app_flutter/view/preSettings.view.dart';
@@ -15,5 +16,7 @@ abstract class Pages {
     Routes.Presetting2Page: (BuildContext context) => const PreSettings2View(),
     Routes.UserProfilePage: (BuildContext context) => const UserProfileView(),
     Routes.FoodFormPage: (BuildContext context) => const FoodForm(),
+    Routes.CaloriesCalculatorPage: (BuildContext context) =>
+        const CaloriesCalculatorView(),
   };
 }

@@ -1,3 +1,4 @@
+import 'package:first_app_flutter/Routes/routes.dart';
 import 'package:first_app_flutter/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -28,15 +29,31 @@ class DrawerForInfo extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: const Text('Opción 1'),
+            title: const Text('Home'),
             onTap: () {
               _scaffoldKey.currentState?.openEndDrawer();
+              Navigator.pushNamed(context, Routes.Homepage);
             },
           ),
           ListTile(
-            title: const Text('Opción 2'),
+            title: const Text('Registro de Alimentos'),
             onTap: () {
               _scaffoldKey.currentState?.openEndDrawer();
+              Navigator.pushNamed(context, Routes.FoodFormPage);
+            },
+          ),
+          ListTile(
+            title: const Text('Calculadora de Calorias'),
+            onTap: () {
+              _scaffoldKey.currentState?.openEndDrawer();
+              Navigator.pushNamed(context, Routes.CaloriesCalculatorPage);
+            },
+          ),
+          ListTile(
+            title: const Text('Configuración'),
+            onTap: () {
+              _scaffoldKey.currentState?.openEndDrawer();
+              Navigator.pushNamed(context, Routes.UserProfilePage);
             },
           ),
         ],

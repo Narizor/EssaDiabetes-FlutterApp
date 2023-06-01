@@ -46,9 +46,9 @@ final List<FoodHealthyInfo> foodhealthyinfos = [
   FoodHealthyInfo(
     title: "Tomates",
     img: "assets/images/tomates.jpeg",
-    origin: "Bajos Andes,Mexico",
+    origin: "Bajos Andes, Mexico",
     description:
-        "Los tomates son frutas que se utilizan comúnmente como verduras en la cocina. Son conocidos por su característico color rojo brillante y su sabor jugoso y refrescante. Los tomates son una excelente fuente de nutrientes, como la vitamina C, que ayuda a fortalecer el sistema inmunológico, y el licopeno . ",
+        "Los tomates son frutas que se utilizan comúnmente como verduras en la cocina. Son conocidos por su característico color rojo brillante y su sabor jugoso y refrescante. Los tomates son una excelente fuente de nutrientes, como la vitamina C, que ayuda a fortalecer el sistema inmunológico, y el licopeno.",
     stars: 3,
     benefits: [
       "Rico en antioxidantes",
@@ -61,7 +61,7 @@ final List<FoodHealthyInfo> foodhealthyinfos = [
     img: "assets/images/palta.jpg",
     origin: "Áreas Tropicales",
     description:
-        "La palta, también conocida como aguacate, es una fruta tropical de forma ovalada y pulpa cremosa. Su piel es verde oscuro y suave al tacto cuando está madura. La palta es famosa por ser una excelente fuente de grasas saludables. ",
+        "La palta, también conocida como aguacate, es una fruta tropical de forma ovalada y pulpa cremosa. Su piel es verde oscuro y suave al tacto cuando está madura. La palta es famosa por ser una excelente fuente de grasas saludables.",
     stars: 2,
     benefits: [
       "Alto poder antioxidante",
@@ -70,42 +70,42 @@ final List<FoodHealthyInfo> foodhealthyinfos = [
     ],
   ),
   FoodHealthyInfo(
-    title: "Grecia",
-    img: "assets/images/greece.jpg",
-    origin: "Sur de Europa",
+    title: "Quinoa",
+    img: "assets/images/quinoa.jpg",
+    origin: "Región Andina",
     description:
-        "Cuna de la civilización occidental y famosa por sus antiguos monumentos...",
-    stars: 3,
+        "La quinoa es un pseudocereal altamente nutritivo y libre de gluten. Se cultiva en la región andina y se considera un alimento básico en muchas culturas. La quinoa es rica en proteínas, fibra y varios nutrientes esenciales. Es una excelente opción para dietas vegetarianas y veganas.",
+    stars: 4,
     benefits: [
-      "Rico en antioxidantes",
-      "Promueve la salud cardiovascular",
-      "Beneficia la salud ocular"
+      "Fuente de proteínas completas",
+      "Alto contenido de fibra",
+      "Rica en vitaminas y minerales"
     ],
   ),
   FoodHealthyInfo(
-    title: "Japón",
-    img: "assets/images/japan.jpg",
-    origin: "Sur de Europa",
+    title: "Nueces",
+    img: "assets/images/nueces.jpg",
+    origin: "Diversas regiones",
     description:
-        "Mezcla única de tradiciones milenarias y tecnología moderna...",
+        "Las nueces son frutos secos con forma de cáscara dura y contenido interno comestible. Son una fuente rica de grasas saludables, proteínas, vitaminas y minerales. Las nueces se consideran beneficiosas para el corazón y se pueden incluir en una variedad de platos y recetas.",
     stars: 3,
     benefits: [
-      "Rico en antioxidantes",
-      "Promueve la salud cardiovascular",
-      "Beneficia la salud ocular"
+      "Promueven la salud cardiovascular",
+      "Ricas en antioxidantes",
+      "Ayudan a controlar el peso"
     ],
   ),
   FoodHealthyInfo(
-    title: "Australia",
-    img: "assets/images/australia.jpg",
-    origin: "Sur de Europa",
+    title: "Arroz integral",
+    img: "assets/images/arrozintegral.jpg",
+    origin: "Varias regiones",
     description:
-        "Continente rodeado de impresionantes playas y biodiversidad única...",
-    stars: 3,
+        "llamado también arroz cargo, arroz pardo o arroz moreno, es arroz descascarillado, al que solo se le ha quitado la cáscara exterior.Aporta vitaminas como provitamina A, vitamina B1, B3 y B12; minerales como sodio, potasio, hierro, calcio y fósforo; hidratos de carbono y proteínas.",
+    stars: 4,
     benefits: [
-      "Rico en antioxidantes",
-      "Promueve la salud cardiovascular",
-      "Beneficia la salud ocular"
+      "Ayuda en la pérdida de peso",
+      "Es gran fuente de fibra",
+      "Contiene gran cantidad de antioxidantes y minerales"
     ],
   ),
 ];
