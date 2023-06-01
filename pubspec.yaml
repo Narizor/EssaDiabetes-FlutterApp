@@ -45,7 +45,6 @@ dependencies:
   local_auth: ^2.1.6
   cloud_firestore: ^4.7.1
   flutter_material_pickers: ^3.3.0
-  font_awesome_flutter: ^10.0.0
   image_picker: ^0.8.7+5
 
 dev_dependencies:

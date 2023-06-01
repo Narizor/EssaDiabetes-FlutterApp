@@ -108,10 +108,10 @@ class _PreSettings2ViewState extends State<PreSettings2View> {
                   },
                 ),
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: 23.0),
+                  margin: const EdgeInsets.symmetric(vertical: 50.0),
                   width: MediaQuery.of(context).size.width * .4,
                   decoration: BoxDecoration(
-                      color: Colors.lightBlue[400],
+                      color: Colors.lightBlue[500],
                       borderRadius: BorderRadius.circular(20.0)),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 4.0, bottom: 8.0),

@@ -67,7 +67,9 @@ class CategoriesListScroll extends StatelessWidget {
               categoryTitle: "Calculadora",
               categorySubTitle: "Calorias",
               img: "assets/images/calculadoraCarbohidratos.jpg",
-              press: () {}),
+              press: () {
+                Navigator.pushNamed(context, Routes.CaloriesCalculatorPage);
+              }),
           CategoryCard(
               categoryTitle: "Planificación",
               categorySubTitle: "Comida",
