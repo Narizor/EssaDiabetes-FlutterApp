@@ -1,5 +1,6 @@
-import 'package:first_app_flutter/Routes/routes.dart';
 import 'package:first_app_flutter/theme.dart';
+import 'package:first_app_flutter/widgets/drawerContainer.widget.dart';
+import 'package:first_app_flutter/widgets/header.widget.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
@@ -16,6 +17,9 @@ class _FoodFormState extends State<FoodForm> {
   bool _isPerGram = true;
   double _calories = 0.0;
   bool _isImageSelected = false;
+  // ignore: unused_field
+  String _selectedImageName = '';
+  // ignore: unused_field
   File? _selectedImage;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -35,7 +39,9 @@ class _FoodFormState extends State<FoodForm> {
     if (pickedImage != null) {
       setState(() {
         _selectedImage = File(pickedImage.path);
-        _isImageSelected = true; // Marcar la imagen como seleccionada
+        _isImageSelected = true;
+        _selectedImageName =
+            pickedImage.name; // Obtener el nombre de la imagen seleccionada
       });
     }
   }
@@ -144,32 +150,42 @@ class _FoodFormState extends State<FoodForm> {
                   ),
                 ),
                 const SizedBox(
-                  height: 25,
+                  height: 0,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Align(
                     alignment: Alignment.center,
-                    child: ElevatedButton.icon(
-                      onPressed: _selectImage,
-                      style: ElevatedButton.styleFrom(
-                        // ignore: deprecated_member_use
-                        primary:
-                            _isImageSelected ? Colors.blue : kDarkGreyColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                    child: Column(
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: _selectImage,
+                          style: ElevatedButton.styleFrom(
+                            // ignore: deprecated_member_use
+                            primary:
+                                _isImageSelected ? Colors.blue : kDarkGreyColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          icon: const Icon(Icons.camera_alt),
+                          label: const Text(
+                            'Escoger foto',
+                            style: TextStyle(fontSize: 15),
+                          ),
                         ),
-                      ),
-                      icon: const Icon(Icons.camera_alt),
-                      label: const Text(
-                        'Escoger foto',
-                        style: TextStyle(fontSize: 15),
-                      ),
+                        if (_isImageSelected) // Mostrar el nombre de la imagen solo si está seleccionada
+                          Text(
+                            'Imagen seleccionada: $_selectedImageName',
+                            // ignore: prefer_const_constructors
+                            style: TextStyle(fontSize: 15),
+                          ),
+                      ],
                     ),
                   ),
                 ),
                 const SizedBox(
-                  height: 80,
+                  height: 40,
                 ),
                 ElevatedButton(
                   onPressed: _submitForm,
@@ -194,91 +210,6 @@ class _FoodFormState extends State<FoodForm> {
         ),
       ),
       drawer: DrawerForInfo(scaffoldKey: _scaffoldKey),
-    );
-  }
-}
-
-class Header extends StatelessWidget {
-  const Header({
-    Key? key,
-    required this.imgUser,
-    required this.scaffoldKey, // Nueva variable agregada
-  }) : super(key: key);
-  final String imgUser;
-  final GlobalKey<ScaffoldState> scaffoldKey; // Nueva variable agregada
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 1.0, right: 8.0, top: 10.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButton(
-              onPressed: () {
-                scaffoldKey.currentState?.openDrawer();
-              },
-              iconSize: 35.0,
-              color: Colors.grey[800],
-              icon: const Icon(Icons.menu)),
-          const Image(
-            image: AssetImage("assets/images/essalud.png"),
-            width: 50,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, Routes.UserProfilePage);
-            },
-            child: CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage(imgUser),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class DrawerForInfo extends StatelessWidget {
-  const DrawerForInfo({
-    super.key,
-    required GlobalKey<ScaffoldState> scaffoldKey,
-  }) : _scaffoldKey = scaffoldKey;
-
-  final GlobalKey<ScaffoldState> _scaffoldKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-            ),
-            child: Text(
-              'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ),
-          ),
-          ListTile(
-            title: const Text('Opción 1'),
-            onTap: () {
-              _scaffoldKey.currentState?.openEndDrawer();
-            },
-          ),
-          ListTile(
-            title: const Text('Opción 2'),
-            onTap: () {
-              _scaffoldKey.currentState?.openEndDrawer();
-            },
-          ),
-        ],
-      ),
     );
   }
 }

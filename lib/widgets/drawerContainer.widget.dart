@@ -1,10 +1,13 @@
 import 'package:first_app_flutter/theme.dart';
 import 'package:flutter/material.dart';
 
-class DrawerContainer extends StatelessWidget {
-  const DrawerContainer({
+class DrawerForInfo extends StatelessWidget {
+  const DrawerForInfo({
     super.key,
-  });
+    required GlobalKey<ScaffoldState> scaffoldKey,
+  }) : _scaffoldKey = scaffoldKey;
+
+  final GlobalKey<ScaffoldState> _scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +30,15 @@ class DrawerContainer extends StatelessWidget {
           ListTile(
             title: const Text('Opción 1'),
             onTap: () {
-              // Acción al hacer clic en la opción 1 del drawer
+              _scaffoldKey.currentState?.openEndDrawer();
             },
           ),
           ListTile(
             title: const Text('Opción 2'),
             onTap: () {
-              // Acción al hacer clic en la opción 2 del drawer
+              _scaffoldKey.currentState?.openEndDrawer();
             },
           ),
-          // Agrega más ListTile según tus necesidades
         ],
       ),
     );

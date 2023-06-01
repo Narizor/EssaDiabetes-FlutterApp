@@ -1,34 +1,45 @@
-import 'dart:developer';
-
+import 'package:first_app_flutter/widgets/categoryCard.widget.dart';
+import 'package:flutter/material.dart';
 import 'package:first_app_flutter/Routes/routes.dart';
 import 'package:first_app_flutter/theme.dart';
 import 'package:first_app_flutter/widgets/drawerContainer.widget.dart';
+import 'package:first_app_flutter/widgets/header.widget.dart';
 import 'package:first_app_flutter/widgets/healthyFoodList.widget.dart';
-import 'package:flutter/material.dart';
+import 'package:first_app_flutter/widgets/welcomeMessageContainer.widget.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.grey[100],
       body: SafeArea(
           child: Column(
-        children: const [
+        children: [
           Header(
             imgUser: 'assets/images/default.png',
+            scaffoldKey: _scaffoldKey,
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
-          WelcomeMessageContainer(),
-          CategoriesListScroll(),
-          HealthyFoodTitle(),
-          Expanded(child: HealthyFoodList())
+          const WelcomeMessageContainer(),
+          const CategoriesListScroll(),
+          const HealthyFoodTitle(),
+          const Expanded(child: HealthyFoodList())
         ],
       )),
-      drawer: const DrawerContainer(),
+      drawer: DrawerForInfo(
+        scaffoldKey: _scaffoldKey,
+      ),
     );
   }
 }
@@ -68,114 +79,6 @@ class CategoriesListScroll extends StatelessWidget {
   }
 }
 
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({
-    Key? key,
-    required this.categoryTitle,
-    required this.categorySubTitle,
-    required this.press,
-    required this.img,
-  }) : super(key: key);
-
-  final String categoryTitle, categorySubTitle, img;
-  final VoidCallback? press;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: Container(
-        margin: const EdgeInsets.only(left: 20, top: 20 / 2, bottom: 10 * 2),
-        width: MediaQuery.of(context).size.width * 0.4,
-        height: MediaQuery.of(context).size.width * 0.6,
-        // decoration: BoxDecoration(
-        //     borderRadius: BorderRadius.circular(40.0),
-        //     color: const Color.fromRGBO(165, 195, 223, 1)),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40.0),
-          color: const Color.fromRGBO(165, 195, 223, 1),
-          image: DecorationImage(
-            image: AssetImage(img),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              Colors.black
-                  .withOpacity(0.3), // Ajusta la opacidad aquí (0.0 - 1.0)
-              BlendMode
-                  .darken, // Puedes cambiar el modo de fusión según tus necesidades
-            ),
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                categoryTitle,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "de",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(
-                categorySubTitle,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class WelcomeMessageContainer extends StatelessWidget {
-  const WelcomeMessageContainer({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Text(
-            "Bienvenido",
-            style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: kPrimaryColor),
-          ),
-          IconButton(
-              iconSize: 35.0,
-              onPressed: () {},
-              color: kPrimaryColor,
-              icon: const Icon(Icons.accessibility_new)),
-        ],
-      ),
-    );
-  }
-}
-
 class HealthyFoodTitle extends StatelessWidget {
   const HealthyFoodTitle({
     super.key,
@@ -194,45 +97,6 @@ class HealthyFoodTitle extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: kPrimaryColor),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class Header extends StatelessWidget {
-  const Header({
-    super.key,
-    required this.imgUser,
-  });
-  final String imgUser;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 1.0, right: 8.0, top: 10.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButton(
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              iconSize: 35.0,
-              color: Colors.grey[800],
-              icon: const Icon(Icons.menu)),
-          const Image(
-            image: AssetImage("assets/images/essalud.png"),
-            width: 50,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, Routes.UserProfilePage);
-            },
-            child: CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage(imgUser),
-            ),
-          )
         ],
       ),
     );

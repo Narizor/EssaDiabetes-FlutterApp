@@ -27,7 +27,7 @@ class _AgePickerState extends State<AgePicker> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.only(top: 10, left: 40, right: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -36,9 +36,6 @@ class _AgePickerState extends State<AgePicker> {
               items[index],
               style: const TextStyle(fontSize: 48, fontWeight: FontWeight.w400),
             ),
-          ),
-          const SizedBox(
-            width: 24,
           ),
           CupertinoButton.filled(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -75,20 +72,28 @@ class _AgePickerState extends State<AgePicker> {
             background: CupertinoColors.activeBlue.withOpacity(0.2),
           ),
           children: List.generate(items.length, (index) {
-            final isSelected = this.index == index;
             final item = items[index];
-            final color =
-                isSelected ? CupertinoColors.activeBlue : CupertinoColors.black;
-            return Center(
-              child: Text(item, style: TextStyle(color: color, fontSize: 32)),
+            return Builder(
+              builder: (BuildContext context) {
+                final isSelected = this.index == index;
+                final color =
+                    isSelected ? CupertinoColors.black : CupertinoColors.black;
+                return Center(
+                  child:
+                      Text(item, style: TextStyle(color: color, fontSize: 32)),
+                );
+              },
             );
           }),
           onSelectedItemChanged: (index) {
-            setState(() => this.index = index);
-
-            final item = items[index];
-            // ignore: avoid_print
-            print('item:$item');
+            if (index >= 0 && index < items.length) {
+              setState(() {
+                this.index = index;
+              });
+              final item = items[index];
+              // ignore: avoid_print
+              print('item: $item');
+            }
           },
         ),
       );
