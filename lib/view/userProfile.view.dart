@@ -1,12 +1,20 @@
+import 'package:first_app_flutter/widgets/drawerContainer.widget.dart';
 import 'package:flutter/material.dart';
 
-class UserProfileView extends StatelessWidget {
+class UserProfileView extends StatefulWidget {
   const UserProfileView({super.key});
 
+  @override
+  State<UserProfileView> createState() => _UserProfileViewState();
+}
+
+class _UserProfileViewState extends State<UserProfileView> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        key: _scaffoldKey,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,15 +48,20 @@ class UserProfileView extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(
-                                  0 * 1, 1 * 1, 271.92 * 1, 0 * 1),
-                              width: 21.08 * 1,
-                              height: 18 * 1,
-                              child: const Icon(
-                                Icons.menu,
-                                size: 35,
-                                color: Colors.white,
+                            GestureDetector(
+                              onTap: () {
+                                // ignore: avoid_print
+                                print("hola");
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.fromLTRB(0, 1, 240, 0),
+                                width: 45,
+                                height: 35,
+                                child: const Icon(
+                                  Icons.menu,
+                                  size: 35,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                             const SizedBox(
@@ -714,6 +727,7 @@ class UserProfileView extends StatelessWidget {
           ),
         ),
       ),
+      drawer: DrawerForInfo(scaffoldKey: _scaffoldKey),
     );
   }
 }
